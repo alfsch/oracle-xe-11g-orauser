@@ -1,4 +1,4 @@
-FROM sath89/oracle-xe-11g
+FROM sath89/oracle-12c
 MAINTAINER Alfred Schmid
 ENV TNS_ADMIN=$ORACLE_HOME/network/admin
 ENV SQLPLUS=$ORACLE_HOME/bin/sqlplus
