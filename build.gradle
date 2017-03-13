@@ -1,0 +1,25 @@
+buildscript {
+    repositories { mavenCentral() }
+    dependencies { classpath('se.transmode.gradle:gradle-docker:1.2') }
+}
+
+repositories { mavenCentral() }
+
+apply plugin: 'docker'
+
+group = 'docker.ff-muenchen.de:8091'
+
+task buildDocker(type: Docker) {
+    push = false
+    applicationName = 'oracle-orauser'
+    dockerfile = file('src/main/docker/Dockerfile')
+    doFirst {
+        copy {
+            from 'src/main/docker/files'
+            into 'build/docker'
+        }
+    }
+}
+
+task wrapper(type: Wrapper) { gradleVersion = '3.3' }
+

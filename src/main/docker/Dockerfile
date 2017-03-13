@@ -5,5 +5,6 @@ ENV SQLPLUS=$ORACLE_HOME/bin/sqlplus
 ENV TABLESPACE_CREATED=./tablespace-created.stat
 ADD create.sql /u01/app/oracle
 ADD orauser-entrypoint.sh /
+VOLUME ["/u01/app/oracle-product"]
 ENTRYPOINT ["/orauser-entrypoint.sh"]
 CMD [""]
